@@ -1,0 +1,43 @@
+{#
+/**
+ * Craft restrict volumes plugin for Craft CMS 3.x
+ *
+ * Craft volume filetypes Settings.twig
+ *
+ * @author    Born05
+ * @copyright Copyright (c) 2021 Born05
+ * @link      https://born05.com
+ * @package   RestrictVolumes
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% set volumes = craft.app.volumes.getAllVolumes() %}
+{% set fileKinds = craft.io.getFileKinds() %}
+
+<h1>{{ 'Allowed file kinds per volume'|t('restrict-volumes') }}</h1>
+<div class="allowed-kinds">
+	{% for volume in volumes %}
+		<div class="allowed-kinds-volume">
+			<h2>{{ volume.name }}</h2>
+			{% for fileKindHandle, fileKind in fileKinds %}
+				{% set checked = true %}
+
+				{% if settings.allowedKinds is defined and settings.allowedKinds[volume.handle] is defined and not settings.allowedKinds[volume.handle][fileKindHandle] %}
+					{% set checked = false %}
+				{% endif %}
+
+				{% set name = 'allowedKinds['~ volume.handle ~']['~ fileKindHandle ~']' %}
+				{{ forms.checkboxField({
+            label: fileKind.label,
+            id: name,
+            name: name,
+            value: checked,
+            checked: checked
+        }) }}
+			{% endfor %}
+		</div>
+	{% endfor %}
+</div>

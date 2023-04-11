@@ -1,0 +1,27 @@
+/**
+ * Craft volume filetypes plugin for Craft CMS
+ *
+ * Craft volume filetypes CSS
+ *
+ * @author    Born05
+ * @copyright Copyright (c) 2021 Born05
+ * @link      https://born05.com
+ * @package   RestrictVolumes
+ * @since     1.0.0
+ */
+
+.allowed-kinds .checkboxfield {
+    margin: 0;
+}
+
+.allowed-kinds {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 230px);
+    grid-gap: 35px;
+}
+
+.allowed-kinds-volume {
+    padding: 22px 30px;
+    background-color: var(--gray-100);
+    border-radius: 5px;
+}
