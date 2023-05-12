@@ -1,8 +1,7 @@
 {
-    "name": "born05/restrict-volumes",
+    "name": "born05/craft-restrict-volumes",
     "description": "Decide what filetypes are allowed per volume.",
     "type": "craft-plugin",
-    "version": "1.0.0",
     "keywords": [
         "craft",
         "cms",
